@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>宋代五大名窑 · 色彩沉浸式数字策展</title>
+
+<style>
+/* ================== 基础 ================== */
+body{
+  margin:0;
+  font-family:"Noto Serif SC",serif;
+  background:#000;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* ================== 彩色动态背景 ================== */
+.bg-layer{
+  position:fixed;
+  inset:-20%;
+  z-index:-5;
+  filter:blur(120px);
+  opacity:.9;
+  animation:moveBg 40s infinite alternate linear;
+}
+.bg1{
+  background:
+    radial-gradient(circle,#7ea1b2,transparent 60%),
+    radial-gradient(circle,#b5495b,transparent 60%),
+    radial-gradient(circle,#f0ebd8,transparent 60%);
+}
+.bg2{
+  background:
+    radial-gradient(circle,#89cff0,transparent 60%),
+    radial-gradient(circle,#783840,transparent 60%),
+    radial-gradient(circle,#ced3d4,transparent 60%);
+  animation-duration:60s;
+}
+
+@keyframes moveBg{
+  from{transform:translate(-10%,-10%) rotate(0deg);}
+  to{transform:translate(10%,10%) rotate(360deg);}
+}
+
+/* ================== 文本 ================== */
+section{
+  padding:140px 12vw;
+  max-width:1400px;
+  margin:auto;
+}
+h1{
+  font-size:clamp(3rem,7vw,6rem);
+  background:linear-gradient(90deg,#7ea1b2,#b5495b,#f0ebd8,#89cff0);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+h2{
+  font-size:3rem;
+  margin-bottom:40px;
+  background:linear-gradient(90deg,#fff,#aaa,#fff);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+p{
+  font-size:1.15rem;
+  line-height:2.2;
+  opacity:.85;
+  margin-bottom:30px;
+}
+
+/* ================== 窑口彩色模块 ================== */
+.kiln{
+  margin-top:120px;
+  padding:80px;
+  border-radius:40px;
+  position:relative;
+  overflow:hidden;
+}
+.kiln::before{
+  content:"";
+  position:absolute;
+  inset:-50%;
+  background:var(--bg);
+  animation:spin 20s linear infinite;
+  opacity:.8;
+}
+@keyframes spin{
+  to{transform:rotate(360deg);}
+}
+.kiln-content{
+  position:relative;
+  background:rgba(0,0,0,.55);
+  backdrop-filter:blur(20px);
+  border-radius:30px;
+  padding:60px;
+}
+
+/* ================== 釉色观察 ================== */
+.glaze{
+  height:220px;
+  border-radius:30px;
+  background:linear-gradient(120deg,var(--c1),var(--c2),var(--c3));
+  margin:50px 0;
+  transition:.3s;
+}
+
+/* ================== 隐藏交互 ================== */
+.secret{
+  opacity:0;
+  transition:1s;
+  font-size:14px;
+  color:#ccc;
+}
+.secret.show{opacity:1;}
+</style>
+</head>
+
+<body>
+
+<div class="bg-layer bg1"></div>
+<div class="bg-layer bg2"></div>
+
+<section>
+<h1>宋代五大名窑</h1>
+<p>
+宋代，是中国陶瓷史上由技入道的巅峰阶段。  
+在这一时期，瓷器不再追求装饰的繁复，而转向釉色、器型与精神气质的高度统一。
+</p>
+<p>
+本网页以色彩与交互为媒介，试图将五大名窑从“历史名词”
+转译为“可感知的视觉经验”。
+</p>
+</section>
+
+<section>
+<h2>汝窑 · 天青之极</h2>
+<div class="kiln" style="--bg:
+radial-gradient(circle,#7ea1b2,#4f6d7a,#1c2f38)">
+<div class="kiln-content">
+<p>
+汝窑以“雨过天青云破处”闻名，釉色如玉，内敛含蓄。
+</p>
+<div class="glaze" style="--c1:#7ea1b2;--c2:#89cff0;--c3:#dbeeff"></div>
+<p>
+其器型多小巧端正，强调人与器之间的亲密关系。
+</p>
+<div class="secret">隐藏策展：汝窑之美，在于“少”与“不可得”。</div>
+</div>
+</div>
+</section>
+
+<section>
+<h2>官窑 · 法度与秩序</h2>
+<div class="kiln" style="--bg:
+radial-gradient(circle,#ced3d4,#9aa0a6,#4a4f55)">
+<div class="kiln-content">
+<p>
+官窑代表皇家审美，紫口铁足，多层施釉。
+</p>
+<div class="glaze" style="--c1:#ced3d4;--c2:#f5f5f5;--c3:#999"></div>
+<p>
+器物庄重、厚实，强调制度之美。
+</p>
+<div class="secret">隐藏策展：官窑并非“冷”，而是权力的温度。</div>
+</div>
+</div>
+</section>
+
+<section>
+<h2>钧窑 · 窑变万彩</h2>
+<div class="kiln" style="--bg:
+radial-gradient(circle,#b5495b,#783840,#4a192c,#89cff0)">
+<div class="kiln-content">
+<p>
+钧窑以铜红釉著称，入窑一色，出窑万彩。
+</p>
+<div class="glaze" style="--c1:#b5495b;--c2:#4a192c;--c3:#89cff0"></div>
+<p>
+这是宋瓷中最具不确定性的存在。
+</p>
+<div class="secret">隐藏策展：钧窑，是宋代唯一允许“失控”的美。</div>
+</div>
+</div>
+</section>
+
+<section>
+<h2>定窑 · 白中见骨</h2>
+<div class="kiln" style="--bg:
+radial-gradient(circle,#f0ebd8,#d6c68b,#a38f5a)">
+<div class="kiln-content">
+<p>
+定窑白瓷，以刻花闻名，覆烧工艺造就芒口。
+</p>
+<div class="glaze" style="--c1:#f0ebd8;--c2:#fff;--c3:#d6c68b"></div>
+<p>
+线条流畅，装饰克制。
+</p>
+<div class="secret">隐藏策展：定窑，是“线”的艺术。</div>
+</div>
+</div>
+</section>
+
+<section>
+<h2>哥窑 · 裂而不破</h2>
+<div class="kiln" style="--bg:
+radial-gradient(circle,#8c8c8c,#555,#222)">
+<div class="kiln-content">
+<p>
+哥窑以金丝铁线著称，将缺陷转化为美。
+</p>
+<div class="glaze" style="--c1:#aaa;--c2:#666;--c3:#333"></div>
+<p>
+裂纹成为时间的可视化。
+</p>
+<div class="secret">隐藏策展：哥窑，宋人对“不完美”的回答。</div>
+</div>
+</div>
+</section>
+
+<script>
+/* 鼠标驱动釉色 */
+document.querySelectorAll(".glaze").forEach(g=>{
+  g.addEventListener("mousemove",e=>{
+    g.style.background=
+    `radial-gradient(circle at ${e.offsetX}px ${e.offsetY}px,
+    rgba(255,255,255,.9),
+    ${getComputedStyle(g).getPropertyValue("--c1")},
+    ${getComputedStyle(g).getPropertyValue("--c2")})`;
+  });
+});
+
+/* 隐藏策展 */
+document.querySelectorAll(".kiln").forEach(k=>{
+  let t=0;
+  k.onclick=()=>{
+    t++;
+    if(t>=3){
+      k.querySelector(".secret").classList.add("show");
+    }
+  };
+});
+</script>
+
+</body>
+</html>
